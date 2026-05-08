@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Card 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Paytone+One&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Bubblegum Sans', cursive;
+    overflow:hidden;
+    background:#fff0f5;
+    height:100vh;
+}
+
+.page{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    transition:.5s;
+    padding:20px;
+}
+
+.hidden{
+    opacity:0;
+    pointer-events:none;
+    transform:scale(.9);
+}
+
+.bg{
+    position:absolute;
+    inset:0;
+    background:url("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=1200&auto=format&fit=crop") center/cover;
+    filter:blur(4px) brightness(.8);
+    transform:scale(1.1);
+}
+
+.card{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:420px;
+    background:rgba(255,255,255,.88);
+    border:3px solid pink;
+    border-radius:28px;
+    padding:28px;
+    text-align:center;
+    box-shadow:0 10px 35px rgba(255,182,193,.5);
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+.avatar{
+    width:140px;
+    height:140px;
+    border-radius:20px;
+    overflow:hidden;
+    margin:auto;
+    border:4px solid pink;
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+h1{
+    font-family:'Paytone One', sans-serif;
+    color:#ff7ea5;
+    margin-top:18px;
+    font-size:2rem;
+}
+
+h2{
+    color:#ff92b2;
+    margin-top:10px;
+}
+
+p{
+    margin-top:14px;
+    color:#ff7ea5;
+    line-height:1.5;
+}
+
+button{
+    border:none;
+    background:#ffb6c1;
+    color:white;
+    padding:12px 26px;
+    border-radius:999px;
+    font-size:1rem;
+    cursor:pointer;
+    margin-top:18px;
+    transition:.25s;
+    font-family:'Bubblegum Sans';
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.no-btn{
+    background:#7ce3cf;
+    position:relative;
+}
+
+.letter{
+    font-size:110px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.message{
+    font-size:1.15rem;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.heart{
+    position:absolute;
+    bottom:-20px;
+    font-size:20px;
+    animation:fly linear infinite;
+    opacity:.8;
+}
+
+@keyframes fly{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+.music{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:99;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    font-size:24px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- PAGE 1 -->
+<div class="page" id="page1">
+
+    <div class="card">
+
+        <div class="avatar">
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800&auto=format&fit=crop">
+        </div>
+
+        <h1>Happy Birthday 💖</h1>
+
+        <h2>my loveeee ✨</h2>
+
+        <p>
+            Click the next button!! <br>
+            (つ◔◡◔)つ♥
+        </p>
+
+        <button onclick="nextPage()">
+            Next!! ^w^
+        </button>
+
+    </div>
+
+</div>
+
+<!-- PAGE 2 -->
+<div class="page hidden" id="page2">
+
+    <div class="card">
+
+        <div class="letter">
+            💌
+        </div>
+
+        <h2>Do you want to open it?</h2>
+
+        <button onclick="openLetter()">
+            Open it 💖
+        </button>
+
+        <button class="no-btn" id="noBtn">
+            No ty
+        </button>
+
+    </div>
+
+</div>
+
+<!-- PAGE 3 -->
+<div class="page hidden" id="page3">
+
+    <div class="card">
+
+        <h1>I LOVE YOU 💕</h1>
+
+        <div class="message">
+            Happy birthday babyyy ✨<br><br>
+
+            Chúc em luôn vui vẻ,<br>
+            hạnh phúc và được yêu thương thật nhiều 💖<br><br>
+
+            Anh sẽ luôn ở đây với emmm 🥺
+        </div>
+
+    </div>
+
+</div>
+
+<button class="music" onclick="toggleMusic()">
+🎵
+</button>
+
+<audio id="bgm" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=lofi-study-112191.mp3">
+</audio>
+
+<script>
+
+const bgm = document.getElementById("bgm");
+
+function nextPage(){
+    document.getElementById("page1").classList.add("hidden");
+    document.getElementById("page2").classList.remove("hidden");
+
+    bgm.play();
+}
+
+function openLetter(){
+    document.getElementById("page2").classList.add("hidden");
+    document.getElementById("page3").classList.remove("hidden");
+}
+
+function toggleMusic(){
+
+    if(bgm.paused){
+        bgm.play();
+    }else{
+        bgm.pause();
+    }
+}
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+
+    const x = Math.random() * 250 - 120;
+    const y = Math.random() * 250 - 120;
+
+    noBtn.style.transform =
+        `translate(${x}px, ${y}px)`;
+});
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration =
+        (4 + Math.random()*4) + "s";
+
+    heart.style.fontSize =
+        (18 + Math.random()*25) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
