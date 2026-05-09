@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Card 💖</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Paytone+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
 
@@ -16,7 +16,7 @@
 }
 
 body{
-    font-family:'Bubblegum Sans',cursive;
+    font-family:'Quicksand',sans-serif;
     background:#fff5f7;
     background-image:url('https://mayz.love/assets/cute-birthday/kgqg355gw1.jpg');
     background-size:cover;
@@ -43,43 +43,44 @@ body{
 }
 
 .card{
-    background:rgba(255,255,255,.9);
-    border-radius:25px;
-    padding:20px;
+    background:rgba(255,255,255,.92);
+    border-radius:28px;
+    padding:25px;
     width:92%;
     max-width:520px;
-    border:3px solid pink;
+    border:3px solid #ffc4d6;
     box-shadow:0 10px 30px rgba(255,182,193,.35);
     text-align:center;
     position:relative;
     z-index:5;
     animation:float 3s ease-in-out infinite;
+    backdrop-filter:blur(8px);
 }
 
 .card1{
-    background:rgba(255,255,255,.9);
-    border-radius:25px;
-    padding:20px;
-
+    background:rgba(255,255,255,.92);
+    border-radius:28px;
+    padding:22px;
     width:122%;
-    max-width:650px;
-
+    max-width:680px;
     margin:auto;
-    border:3px solid pink;
+    border:3px solid #ffc4d6;
     box-shadow:0 10px 30px rgba(255,182,193,.35);
     text-align:center;
     position:relative;
     z-index:5;
     animation:float 3s ease-in-out infinite;
+    backdrop-filter:blur(8px);
 }
 
 .avatar{
-    width:140px;
-    height:140px;
-    border-radius:20px;
+    width:150px;
+    height:150px;
+    border-radius:24px;
     overflow:hidden;
     margin:auto;
-    border:4px solid pink;
+    border:5px solid pink;
+    box-shadow:0 8px 20px rgba(255,182,193,.4);
 }
 
 .avatar img{
@@ -90,15 +91,17 @@ body{
 
 button{
     border:none;
-    background:#ffb6c1;
+    background:#ff9fbc;
     color:white;
-    padding:12px 26px;
+    padding:13px 28px;
     border-radius:999px;
     font-size:1rem;
     cursor:pointer;
     margin-top:18px;
     transition:.25s;
-    font-family:'Bubblegum Sans';
+    font-family:'Quicksand',sans-serif;
+    font-weight:700;
+    box-shadow:0 5px 15px rgba(255,182,193,.35);
 }
 
 button:hover{
@@ -106,7 +109,7 @@ button:hover{
 }
 
 .no-btn{
-    background:#77e0cb;
+    background:#7de2d1;
     position:relative;
 }
 
@@ -114,13 +117,13 @@ button:hover{
     position:fixed;
     right:25px;
     bottom:25px;
-    width:55px;
-    height:55px;
+    width:60px;
+    height:60px;
     border:none;
     border-radius:50%;
-    background:#ffb6c1;
+    background:#ff9fbc;
     color:white;
-    font-size:24px;
+    font-size:25px;
     cursor:pointer;
     box-shadow:0 5px 15px rgba(0,0,0,.15);
     z-index:999;
@@ -132,13 +135,13 @@ button:hover{
 }
 
 .message-box{
-    background:rgba(255,255,255,.75);
+    background:rgba(255,255,255,.8);
     border:4px solid pink;
-    border-radius:18px;
-    padding:22px;
+    border-radius:20px;
+    padding:24px;
     margin-top:15px;
-    line-height:1.8;
-    font-size:1.1rem;
+    line-height:1.9;
+    font-size:1.08rem;
     color:#555;
     white-space:pre-line;
     text-align:left;
@@ -153,6 +156,11 @@ button:hover{
     font-size:20px;
     animation:fly linear forwards;
     pointer-events:none;
+}
+
+.title{
+    font-family:'Pacifico',cursive;
+    color:#ff7fa6;
 }
 
 @keyframes fly{
@@ -209,10 +217,8 @@ button:hover{
 
     <div class="card">
 
-        <h1 style="
-            font-family:'Paytone One',sans-serif;
-            color:#ff85a2;
-            font-size:2.3rem;
+        <h1 class="title" style="
+            font-size:2.7rem;
             margin-bottom:15px;
         ">
             Hiiii babyyyy 💖
@@ -220,7 +226,7 @@ button:hover{
 
         <p style="
             color:#ff7ea5;
-            line-height:1.7;
+            line-height:1.8;
             font-size:1.1rem;
         ">
             Anh có thứ muốn đưa em nè ✨<br>
@@ -244,11 +250,9 @@ button:hover{
             <img src="sinhnhat1.jpg">
         </div>
 
-        <h1 style="
-            font-family:'Paytone One',sans-serif;
-            color:#ff85a2;
+        <h1 class="title" style="
             margin-top:18px;
-            font-size:2rem;
+            font-size:2.2rem;
         ">
             Happy Birthday 💖
         </h1>
@@ -263,7 +267,7 @@ button:hover{
         <p style="
             margin-top:15px;
             color:#ff7ea5;
-            line-height:1.5;
+            line-height:1.7;
         ">
             Em ấn tiếp tục đi!! <br>
             (つ◔◡◔)つ♥
@@ -298,7 +302,7 @@ button:hover{
         </button>
 
         <button class="no-btn" id="noBtn">
-            k má
+            k má 😼
         </button>
 
     </div>
@@ -318,10 +322,8 @@ button:hover{
 
         <div class="card1">
 
-            <h1 style="
-                font-family:'Paytone One',sans-serif;
-                color:#ff85a2;
-                font-size:2rem;
+            <h1 class="title" style="
+                font-size:2.4rem;
                 margin-bottom:10px;
             ">
                 I LOVE YOU 💕
@@ -333,33 +335,21 @@ Happy birthday babyyy ✨
 
 Hôm nay là ngày sinh nhật em 🎂
 
-Chúc e ngày xinh nhật trọn dẹn,
-Chúc e luôn vuôi,
+Chúc e ngày xinh nhật trọn vẹn,
+luôn vui vẻ,
 gặp nhiều may mắn,
-chụt e mỗi ngày đều cười tươi 💖
+mỗi ngày đều cười thật tươi 💖
 
 Chúc em ngày càng xinh đẹp,
-Chúc em giỏi giang,
-chúc em khoẻ,
-chúc em cười,
-chúc em no,
-chúc em ấm,
-chúc em mau về với anh 💕
-
-Chúc khum còn buồn phiền,
-tiêu cực,
-luôn an nhiên ✨
+giỏi giang,
+khỏe mạnh,
+và luôn hạnh phúc ✨
 
 Mỗi ngày trôi qua
 đều là ngày hạnh phúc nhất...
-là gần về với anh 💖
+vì là gần về với anh 💕
 
-Anh trẹ kon 🥺
-Anh cũng lửa 🔥
-Anh thương em,
-thương quá nên nổ bùm 🔥
-
-nhưng mà...
+Anh thương em nhiều lắm 🥺
 
 Ghệ yêu dấu của anh ơi ✨
 Ghệ có biết em cần ghệ ♥️
@@ -376,12 +366,14 @@ Yeah yeah có ghệ vui 🔥
 Em thích mỗi ghệ thui 🥰
 Ghệ ghệ ghệ ghệ ghệ ui 💫
 
-Chúc em xinh nhật vui vẻ nha 🎂
+Chúc em sinh nhật vui vẻ nha 🎂
 
             </div>
-<button onclick="goBack()">
+
+            <button onclick="goBack()">
                 Quay Lại 💌
             </button>
+
         </div>
 
     </div>
@@ -402,6 +394,7 @@ function startCard(){
     document.getElementById("page1")
         .classList.remove("hidden");
 }
+
 function goBack(){
 
     document.getElementById("page3")
@@ -410,6 +403,7 @@ function goBack(){
     document.getElementById("introPage")
         .classList.remove("hidden");
 }
+
 function nextPage(){
 
     document.getElementById("page1")
@@ -439,13 +433,22 @@ function toggleMusic(){
 
 const noBtn = document.getElementById("noBtn");
 
-noBtn.addEventListener("mouseover",()=>{
+function moveButton(){
 
-    const x = Math.random()*250 - 120;
-    const y = Math.random()*250 - 120;
+    const x = Math.random()*300 - 150;
+    const y = Math.random()*220 - 110;
 
     noBtn.style.transform =
         `translate(${x}px,${y}px)`;
+}
+
+noBtn.addEventListener("mouseover", moveButton);
+
+noBtn.addEventListener("click",(e)=>{
+
+    e.preventDefault();
+
+    moveButton();
 });
 
 function createHeart(){
