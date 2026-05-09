@@ -16,10 +16,14 @@
 }
 
 body{
-    font-family:'Bubblegum Sans', cursive;
+    font-family:'Bubblegum Sans',cursive;
+    background:#fff5f7;
+    background-image:url('https://mayz.love/assets/cute-birthday/kgqg355gw1.jpg');
+    background-size:cover;
+    background-position:center;
+    min-height:100vh;
     overflow:hidden;
-    background:#fff0f5;
-    height:100vh;
+    position:relative;
 }
 
 .page{
@@ -28,46 +32,45 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
-    transition:.5s;
     padding:20px;
+    transition:.5s;
 }
 
 .hidden{
     opacity:0;
     pointer-events:none;
-    transform:scale(.9);
-}
-
-.bg{
-    position:absolute;
-    inset:0;
-    background:url("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=1200&auto=format&fit=crop") center/cover;
-    filter:blur(4px) brightness(.8);
-    transform:scale(1.1);
+    transform:scale(.92);
 }
 
 .card{
-    position:relative;
-    z-index:2;
-    width:90%;
-    max-width:420px;
-    background:rgba(255,255,255,.88);
+    background:rgba(255,255,255,.9);
+    border-radius:25px;
+    padding:20px;
+    width:92%;
+    max-width:520px;
     border:3px solid pink;
-    border-radius:28px;
-    padding:28px;
+    box-shadow:0 10px 30px rgba(255,182,193,.35);
     text-align:center;
-    box-shadow:0 10px 35px rgba(255,182,193,.5);
+    position:relative;
+    z-index:5;
     animation:float 3s ease-in-out infinite;
 }
 
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-8px);
-    }
+.card1{
+    background:rgba(255,255,255,.9);
+    border-radius:25px;
+    padding:20px;
+
+    width:122%;
+    max-width:650px;
+
+    margin:auto;
+    border:3px solid pink;
+    box-shadow:0 10px 30px rgba(255,182,193,.35);
+    text-align:center;
+    position:relative;
+    z-index:5;
+    animation:float 3s ease-in-out infinite;
 }
 
 .avatar{
@@ -83,24 +86,6 @@ body{
     width:100%;
     height:100%;
     object-fit:cover;
-}
-
-h1{
-    font-family:'Paytone One', sans-serif;
-    color:#ff7ea5;
-    margin-top:18px;
-    font-size:2rem;
-}
-
-h2{
-    color:#ff92b2;
-    margin-top:10px;
-}
-
-p{
-    margin-top:14px;
-    color:#ff7ea5;
-    line-height:1.5;
 }
 
 button{
@@ -121,8 +106,24 @@ button:hover{
 }
 
 .no-btn{
-    background:#7ce3cf;
+    background:#77e0cb;
     position:relative;
+}
+
+.music-btn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:#ffb6c1;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    z-index:999;
 }
 
 .letter{
@@ -130,27 +131,28 @@ button:hover{
     animation:bounce 2s infinite;
 }
 
-@keyframes bounce{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-12px);
-    }
-}
-
-.message{
-    font-size:1.15rem;
-    margin-top:20px;
-    line-height:1.7;
+.message-box{
+    background:rgba(255,255,255,.75);
+    border:4px solid pink;
+    border-radius:18px;
+    padding:22px;
+    margin-top:15px;
+    line-height:1.8;
+    font-size:1.1rem;
+    color:#555;
+    white-space:pre-line;
+    text-align:left;
+    max-height:65vh;
+    overflow:auto;
 }
 
 .heart{
-    position:absolute;
+    position:fixed;
     bottom:-20px;
+    color:pink;
     font-size:20px;
-    animation:fly linear infinite;
-    opacity:.8;
+    animation:fly linear forwards;
+    pointer-events:none;
 }
 
 @keyframes fly{
@@ -169,15 +171,24 @@ button:hover{
     }
 }
 
-.music{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    z-index:99;
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    font-size:24px;
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
 }
 
 </style>
@@ -185,23 +196,76 @@ button:hover{
 
 <body>
 
-<div class="bg"></div>
+<audio id="bgm" loop>
+    <source src="./nhac.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">
+    🎵
+</button>
+
+<!-- PAGE 0 -->
+<div class="page" id="introPage">
+
+    <div class="card">
+
+        <h1 style="
+            font-family:'Paytone One',sans-serif;
+            color:#ff85a2;
+            font-size:2.3rem;
+            margin-bottom:15px;
+        ">
+            Hiiii babyyyy 💖
+        </h1>
+
+        <p style="
+            color:#ff7ea5;
+            line-height:1.7;
+            font-size:1.1rem;
+        ">
+            Anh có thứ muốn đưa em nè ✨<br>
+            Nhấn bắt đầu nhaaaa ♥
+        </p>
+
+        <button onclick="startCard()">
+            Bắt Đầu 💌
+        </button>
+
+    </div>
+
+</div>
 
 <!-- PAGE 1 -->
-<div class="page" id="page1">
+<div class="page hidden" id="page1">
 
     <div class="card">
 
         <div class="avatar">
-            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800&auto=format&fit=crop">
+            <img src="sinhnhat1.jpg">
         </div>
 
-        <h1>Happy Birthday 💖</h1>
+        <h1 style="
+            font-family:'Paytone One',sans-serif;
+            color:#ff85a2;
+            margin-top:18px;
+            font-size:2rem;
+        ">
+            Happy Birthday 💖
+        </h1>
 
-        <h2>my loveeee ✨</h2>
+        <h2 style="
+            color:#ff92b2;
+            margin-top:10px;
+        ">
+            my loveeee ✨
+        </h2>
 
-        <p>
-            Click the next button!! <br>
+        <p style="
+            margin-top:15px;
+            color:#ff7ea5;
+            line-height:1.5;
+        ">
+            Em ấn tiếp tục đi!! <br>
             (つ◔◡◔)つ♥
         </p>
 
@@ -222,14 +286,19 @@ button:hover{
             💌
         </div>
 
-        <h2>Do you want to open it?</h2>
+        <h2 style="
+            color:#ff85a2;
+            margin-top:10px;
+        ">
+            Em có muốn mở thư ra k nè?
+        </h2>
 
         <button onclick="openLetter()">
-            Open it 💖
+            Mở Thư 💖
         </button>
 
         <button class="no-btn" id="noBtn">
-            No ty
+            k má
         </button>
 
     </div>
@@ -239,45 +308,124 @@ button:hover{
 <!-- PAGE 3 -->
 <div class="page hidden" id="page3">
 
-    <div class="card">
+    <div style="
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:80px 20px;
+    ">
 
-        <h1>I LOVE YOU 💕</h1>
+        <div class="card1">
 
-        <div class="message">
-            Happy birthday babyyy ✨<br><br>
+            <h1 style="
+                font-family:'Paytone One',sans-serif;
+                color:#ff85a2;
+                font-size:2rem;
+                margin-bottom:10px;
+            ">
+                I LOVE YOU 💕
+            </h1>
 
-            Chúc em luôn vui vẻ,<br>
-            hạnh phúc và được yêu thương thật nhiều 💖<br><br>
+            <div class="message-box">
 
-            Anh sẽ luôn ở đây với emmm 🥺
+Happy birthday babyyy ✨
+
+Hôm nay là ngày sinh nhật em 🎂
+
+Chúc e ngày xinh nhật trọn dẹn,
+Chúc e luôn vuôi,
+gặp nhiều may mắn,
+chụt e mỗi ngày đều cười tươi 💖
+
+Chúc em ngày càng xinh đẹp,
+Chúc em giỏi giang,
+chúc em khoẻ,
+chúc em cười,
+chúc em no,
+chúc em ấm,
+chúc em mau về với anh 💕
+
+Chúc khum còn buồn phiền,
+tiêu cực,
+luôn an nhiên ✨
+
+Mỗi ngày trôi qua
+đều là ngày hạnh phúc nhất...
+là gần về với anh 💖
+
+Anh trẹ kon 🥺
+Anh cũng lửa 🔥
+Anh thương em,
+thương quá nên nổ bùm 🔥
+
+nhưng mà...
+
+Ghệ yêu dấu của anh ơi ✨
+Ghệ có biết em cần ghệ ♥️
+Ghệ có muốn mình cặp kè 🫦
+Oki hăm 🤙
+
+Yêu em xuyên đại dương nha ✈️
+Về ốm đau anh chăm nha ☀️
+Kí hợp đồng mấy tỷ năm nha 🌈
+Yêu em nhất hệ mặt trời 🌎
+
+Anh có ghệ vui ⭐️
+Yeah yeah có ghệ vui 🔥
+Em thích mỗi ghệ thui 🥰
+Ghệ ghệ ghệ ghệ ghệ ui 💫
+
+Chúc em xinh nhật vui vẻ nha 🎂
+
+            </div>
+<button onclick="goBack()">
+                Quay Lại 💌
+            </button>
         </div>
 
     </div>
 
 </div>
 
-<button class="music" onclick="toggleMusic()">
-🎵
-</button>
-
-<audio id="bgm" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=lofi-study-112191.mp3">
-</audio>
-
 <script>
 
 const bgm = document.getElementById("bgm");
 
-function nextPage(){
-    document.getElementById("page1").classList.add("hidden");
-    document.getElementById("page2").classList.remove("hidden");
+function startCard(){
 
     bgm.play();
+
+    document.getElementById("introPage")
+        .classList.add("hidden");
+
+    document.getElementById("page1")
+        .classList.remove("hidden");
+}
+function goBack(){
+
+    document.getElementById("page3")
+        .classList.add("hidden");
+
+    document.getElementById("introPage")
+        .classList.remove("hidden");
+}
+function nextPage(){
+
+    document.getElementById("page1")
+        .classList.add("hidden");
+
+    document.getElementById("page2")
+        .classList.remove("hidden");
 }
 
 function openLetter(){
-    document.getElementById("page2").classList.add("hidden");
-    document.getElementById("page3").classList.remove("hidden");
+
+    document.getElementById("page2")
+        .classList.add("hidden");
+
+    document.getElementById("page3")
+        .classList.remove("hidden");
 }
 
 function toggleMusic(){
@@ -293,11 +441,11 @@ const noBtn = document.getElementById("noBtn");
 
 noBtn.addEventListener("mouseover",()=>{
 
-    const x = Math.random() * 250 - 120;
-    const y = Math.random() * 250 - 120;
+    const x = Math.random()*250 - 120;
+    const y = Math.random()*250 - 120;
 
     noBtn.style.transform =
-        `translate(${x}px, ${y}px)`;
+        `translate(${x}px,${y}px)`;
 });
 
 function createHeart(){
@@ -307,12 +455,14 @@ function createHeart(){
     heart.className = "heart";
     heart.innerHTML = "💖";
 
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.animationDuration =
-        (4 + Math.random()*4) + "s";
+    heart.style.left =
+        Math.random()*100 + "vw";
 
     heart.style.fontSize =
         (18 + Math.random()*25) + "px";
+
+    heart.style.animationDuration =
+        (4 + Math.random()*4) + "s";
 
     document.body.appendChild(heart);
 
